@@ -1,10 +1,11 @@
 
-import { useRef, useState } from 'react';
+import {  useState } from 'react';
 import { connect } from 'react-redux';
+import { Link , useNavigate} from 'react-router-dom';
 import "./App.css"
 
 
-import Details from "./Details"
+
 
 
 
@@ -12,7 +13,7 @@ function App(props) {
  
   const [lightmode, setmode] = useState(true);
 
-  
+let navigate = useNavigate()
 
  
 
@@ -24,7 +25,7 @@ function App(props) {
 
 
     <div className={lightmode ? "parent" : "parent dark"}>
-      
+   
 
 
       <div className="left" >
@@ -66,11 +67,8 @@ function App(props) {
             <span key={i}>
 
 
-              <div  onClick={() => {
-              console.log("daba dia");
-              <Details name = "han bhaii" />
-              }}  className="card">
-
+              <div onClick={() => navigate(`/details/${v.name}`)}    className="card">
+                
                 <img src={v.img} className="card-img" />
                 <div className="card-img-overlay">
                   <h6 className="card-title">{v.name}</h6>

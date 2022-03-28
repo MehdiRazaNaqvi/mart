@@ -9,9 +9,7 @@ const ini = {
 
 
 
-    ],
-
-    product: {}
+    ]
 }
 
 
