@@ -111,10 +111,6 @@ h4 {
 }
 
 h1 , h2 , h3 , h4{
-    color: rgb(53, 53, 53);
+    color: rgb(75, 75, 75);
 }
 
-.details_img:hover{
-    transition: all 1.5s linear ;
-   transform: scale(1.1);
-}
