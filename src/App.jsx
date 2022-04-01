@@ -12,6 +12,7 @@ import "./App.css"
 function App(props) {
 
   const [lightmode, setmode] = useState(true);
+  const [search , setsearch] = useState({var : ""});
 
   let navigate = useNavigate()
 
@@ -47,6 +48,7 @@ function App(props) {
           </div>
         </form>
 
+        
       </div>
 
 
@@ -55,6 +57,17 @@ function App(props) {
       <div className="center">
 
         <div className="search">
+          <p>Search</p>
+          <input onChange={(e) => {
+            
+            {props.state.map((v,i) =>  v.name == e.target.value? console.log("haaaaaaan") : console.log("naaaeee") )}
+
+            // setsearch({var :e.target.value})
+            // console.log(search)
+            // {search.var == v.name?  console.log('yes') : console.log("no") }
+
+        
+        }} type="text" />
         </div>
 
 
@@ -119,10 +132,6 @@ function App(props) {
 const mapStateToProps = (state) => ({
   state: state.products
 })
-
-// const mapDispatchToProps = (dispatch) => ({
-//     con : () => dispatch(con())
-// })
 
 
 export default connect(mapStateToProps, null)(App)
