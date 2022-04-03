@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+//   "deploy": "gh-pages -b master -d build",
+
+  // "homepage": "https://MehdiRazaNaqvi.github.io/mart",
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
