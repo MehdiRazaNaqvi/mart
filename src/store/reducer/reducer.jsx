@@ -9,12 +9,18 @@ const ini = {
 
 
 
-    ],
-    product : {}
+    ]
 }
 
 
-export default (state = ini) => {
+export default (state = ini , action) => {
+
+    switch(action.type){
+                case("add"):
+                return {...state , products : [...state.products , action.payload ]} 
+                
+                default:
+                    return state;
+    }
  
-            return state;
     }

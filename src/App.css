@@ -1,166 +1,194 @@
-body{
-    padding: 0;
-    margin: 0;
-  }
-  
-  .parent{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(235, 235, 235);
-    
-    display: flex;
-    justify-content: center;
-    
-    transition: all 1.5s linear;  
-  
-  
-  }
-  
-  
-  .left , .right{
-    width: 20%;
-    /* background-color: red; */
-  
-  }
-  
-  .center{
-    width: 70%;
-    /* background-color: aqua; */
-    padding: 0;
-    margin: 0;
-  
-  
-  
-  }
-  
-  
-  
-  
-  .search{
-    background-color: rgb(255, 255, 255);
-    
-    width: 100%;
-    height: 20% ;        
-  
-    transition: all 1.5s linear ; 
-  
-  }
-  
-  
-  .main{
-    transition: all 1.5s linear; 
-  
-  
-    background-color: rgb(235, 235, 235);
-  
-  
-    width: 100%;
-    height: 80% ; 
-  
-  
-    display: grid;
-    grid-template-columns: repeat(5  ,  1fr);
-    grid-template-rows: repeat(3  ,  1fr);
-    column-gap: 5px;
-    row-gap: 5px;
-  
-    /* padding: 5px; */
-    padding-top: 5px;
-  
-  
-  }
-  
-  
-  
-  
-  span{
-    background-color: rgb(255, 203, 203);
-    text-align: center;
-  
-    max-height: 175px;
-  
-  
-  }
-  
-  
-  .card , .card-img{
-    width: 100%;
-    height: 100%;
-    
-  }
-  
-  .card-img{
-    overflow: hidden;
-  }
-  
- 
-  
-  
-  .card{
-    transition: all 1s linear; 
-  }
-  
-  .card:hover {
-    transform: scale(1.4);
-   
-  
-  }
-  
-  
-  .card:hover .card-title , .card:hover .price {
-    display: none;
-  }
-  
-  
-  
-  .card-title{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-top: 70%;
-    font-weight: 400;
-    font-size: medium;
-    color: rgb(0, 0, 0);
-  }
-  
-  
-  
-  .price{
-    color: rgb(255, 132, 0);
-    font-weight: 200;
-    font-size: x-small;
-  }
-  
-  
-  
-  
-  
-  span{
-    overflow: hidden;
-  }
-  
-  
-  .dark{
-    background-color: black;
-  }
-  
-  
-  
-  .dark .main {
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.parent {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(235, 235, 235);
+
+  display: flex;
+  justify-content: center;
+
+  transition: all 1.5s linear;
+
+
+}
+
+
+.left,
+.right {
+  width: 20%;
+  /* background-color: red; */
+
+}
+
+.center {
+  width: 70%;
+  /* background-color: aqua; */
+  padding: 0;
+  margin: 0;
+
+
+
+}
+
+
+
+
+.search {
+  background-color: rgb(255, 255, 255);
+
+  width: 100%;
+  height: 20%;
+
+  transition: all 1.5s linear;
+
+}
+
+
+.main {
+  transition: all 1.5s linear;
+
+
+  background-color: rgb(235, 235, 235);
+
+
+  width: 100%;
+  height: 80%;
+
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 5px;
+  row-gap: 5px;
+
+  /* padding: 5px; */
+  padding-top: 5px;
+
+
+}
+
+
+
+
+span {
+  background-color: rgb(255, 203, 203);
+  text-align: center;
+
+  max-height: 175px;
+
+
+}
+
+
+.card,
+.card-img {
+  width: 100%;
+  height: 100%;
+
+}
+
+.card-img {
+  overflow: hidden;
+}
+
+
+
+
+.card {
+  transition: all 1s linear;
+}
+
+.card:hover {
+  transform: scale(1.4);
+
+
+}
+
+
+.card:hover .card-title,
+.card:hover .price {
+  display: none;
+}
+
+
+
+.card-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* padding-top: 85%; */
+  font-size: small;
+  color: rgb(0, 0, 0);
+}
+
+
+
+.price {
+  color: rgb(255, 132, 0);
+  font-weight: 200;
+  font-size: xx-small;
+}
+
+
+
+
+
+span {
+  overflow: hidden;
+}
+
+
+.dark {
   background-color: black;
-  }
-  
-  .dark .search{
-    background-color: rgb(128, 128, 128);
-  }
-   
-  .dark .card{
-    
-     background-color: rgb(61, 61, 61);
-  }
-  
+}
+
+
+
+.dark .main {
+  background-color: black;
+}
+
+.dark .search {
+  background-color: rgb(128, 128, 128);
+}
+
+.dark .card {
+
+  background-color: rgb(61, 61, 61);
+}
+
+
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.invisible {
+  display: none;
+}
+
+
+
+
+.left,
+.right {
+  text-align: center;
+}
+
+
+
+
+.card-img-overlay {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
   
 
-  .search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}

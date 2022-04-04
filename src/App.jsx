@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "./App.css"
-
+import { add_product } from "./store/action/action";
 
 
 
@@ -12,7 +12,9 @@ import "./App.css"
 function App(props) {
 
   const [lightmode, setmode] = useState(true);
-  const [search , setsearch] = useState({var : ""});
+  const [search, setsearch] = useState({ var: "", bool: false });
+
+
 
   let navigate = useNavigate()
 
@@ -33,22 +35,16 @@ function App(props) {
 
 
 
-        <form>
-          <div className="form-row align-items-center">
-            <div className="col-auto my-1">
+        <select onChange={() => setmode(!lightmode)} className={lightmode ? "btn btn-outline-dark custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
 
-              <select onChange={() => setmode(!lightmode)} className={lightmode ? "btn btn-outline-dark custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
+          <option defaultChecked value="1">☀️</option>
+          <option value="2">🌙</option>
 
-                <option defaultChecked value="1">Light</option>
-                <option value="2">Dark</option>
+        </select>
 
-              </select>
-            </div>
 
-          </div>
-        </form>
 
-        
+
       </div>
 
 
@@ -59,15 +55,14 @@ function App(props) {
         <div className="search">
           <p>Search</p>
           <input onChange={(e) => {
-            
-            {props.state.map((v,i) =>  v.name == e.target.value? console.log("haaaaaaan") : console.log("naaaeee") )}
 
-            // setsearch({var :e.target.value})
+
+            setsearch({ var: e.target.value })
             // console.log(search)
-            // {search.var == v.name?  console.log('yes') : console.log("no") }
 
-        
-        }} type="text" />
+
+
+          }} type="text" />
         </div>
 
 
@@ -75,12 +70,17 @@ function App(props) {
         <div className="main">
 
 
+
           {props.state.map((v, i) => (
 
-            <span key={i}>
+
+            <span className={search.var == "" ? null : "invisible"} key={i}>
 
 
-              <div onClick={() => navigate(`/details/${v.id}`)} className="card">
+              {/* {search.var.includes(v.name) ? setsearch({ ...search, bool: true }) : null} */}
+
+
+              <div onClick={() => navigate(`/mart/details/${v.id}`)} className="card">
 
                 <img src={v.img} className="card-img" />
                 <div className="card-img-overlay">
@@ -89,6 +89,8 @@ function App(props) {
                 </div>
 
               </div>
+
+
 
             </span>
 
@@ -112,9 +114,9 @@ function App(props) {
 
 
       <div className="right">
-
+        <button className="btn btn-outline-warning" onClick={() => navigate("/mart/add")} >Sell</button>
       </div>
-      
+
 
     </div >
 
@@ -135,5 +137,9 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, null)(App)
+const mapDispatchToProps = (dispatch) => ({
+  add_product: () => dispatch(add_product())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
