@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
 import { useNavigate } from "react-router-dom"
-import "./add.css"
+import "../css/add.css";
 import { useState } from 'react';
-import { add_product } from "./store/action/action"
+import { add_product } from "../store/action/action"
 
 
 

@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import "./App.css"
-import { add_product } from "./store/action/action";
+import "../css/App.css";
+import { add_product } from "../store/action/action";
 
 
 
@@ -35,7 +35,7 @@ function App(props) {
 
 
 
-        <select onChange={() => setmode(!lightmode)} className={lightmode ? "btn btn-outline-dark custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
+        <select onChange={() => setmode(!lightmode)} className={lightmode ? "btn btn-outline-light custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
 
           <option defaultChecked value="1">☀️</option>
           <option value="2">🌙</option>
@@ -54,11 +54,11 @@ function App(props) {
 
         <div className="search">
           <p>Search</p>
-          <input onChange={(e) => {
+          <input className="form-control" id="exampleInputEmail1" onChange={(e) => {
 
 
             setsearch({ var: e.target.value })
-            // console.log(search)
+           
 
 
 
@@ -114,7 +114,7 @@ function App(props) {
 
 
       <div className="right">
-        <button className="btn btn-outline-warning" onClick={() => navigate("/mart/add")} >Sell</button>
+        <button className="btn btn-outline-light" onClick={() => navigate("/mart/add")} >List your product</button>
       </div>
 
 

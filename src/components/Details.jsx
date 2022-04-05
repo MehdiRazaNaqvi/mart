@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { connect } from 'react-redux';
-import "./details.css"
+import "../css/details.css";
 
 const Details = (props) => {
 
@@ -8,7 +8,9 @@ const Details = (props) => {
     let product = {}
     const { id } = useParams()
     let navigate = useNavigate()
+
     
+   
 
 
     { props.state.map((v) => { if (v.id == id) { product = v } }) }
@@ -22,7 +24,7 @@ const Details = (props) => {
 
         <div className="one">
 
-            <div className="pic" >  <img className="details_img" src={product.img}  /> </div>
+            <div className="pic" >  <img className="details_img" src={product.img }  /> </div>
 
             <div className="content">
                 <div className="itemm"> <h1>{product.name}</h1> </div>
