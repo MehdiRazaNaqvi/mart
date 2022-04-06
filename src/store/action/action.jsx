@@ -13,6 +13,24 @@ const add_product = (data) => {
 }
 
 
+
+
+const dark_red = () => {
+return(dispatch) => {
+    
+    dispatch({type : "theme"})
+
+}
+}
+
+
+
+
+
+
+
+
 export {
-    add_product
+    add_product,
+    dark_red
 }

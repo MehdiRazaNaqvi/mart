@@ -19,6 +19,10 @@ const App = (props) => {
 
     return (
 
+        <body className={props.darktheme? "dark" : null} >
+            
+        
+
         <div className="add" >  <h1>List Your Product To Millions of Customers </h1>
 
             <div className="upper" >
@@ -53,6 +57,9 @@ const App = (props) => {
 
             <button onClick={() => { props.add_product(data); navigate("/mart") }} className="btn btn-outline-success">Add to Our Mart</button>
         </div>
+
+
+        </body>
     )
 }
 
@@ -61,8 +68,16 @@ const App = (props) => {
 
 
 
-const mapDispatchToProps = (dispatch) => ({
-    add_product: (data) => dispatch(add_product(data))
+
+const mapStateToProps = (state) => ({
+            darktheme : state.darktheme
 })
 
-export default connect(null, mapDispatchToProps)(App)
+
+
+const mapDispatchToProps = (dispatch) => ({
+    add_product: (data) => dispatch(add_product(data)),
+
+})
+
+export default connect( mapStateToProps , mapDispatchToProps)(App)

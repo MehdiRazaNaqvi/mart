@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product } from "../store/action/action";
-
+import { add_product , dark_red } from "../store/action/action";
 
 
 
@@ -24,18 +23,16 @@ function App(props) {
 
 
 
-
-
+        
 
     <div className={lightmode ? "parent" : "parent dark"}>
-
+         
 
 
       <div className="left" >
+      
 
-
-
-        <select onChange={() => setmode(!lightmode)} className={lightmode ? "btn btn-outline-light custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
+        <select onChange={() => {setmode(!lightmode) ; props.dark_red() }} className={lightmode ? "btn btn-outline-light custom-select mr-sm-2" : "btn btn-outline-light custom-select mr-sm-2"} id="inlineFormCustomSelect">
 
           <option defaultChecked value="1">☀️</option>
           <option value="2">🌙</option>
@@ -52,6 +49,8 @@ function App(props) {
 
       <div className="center">
 
+
+      
         <div className="search">
           <p>Search</p>
           <input className="form-control" id="exampleInputEmail1" onChange={(e) => {
@@ -128,6 +127,8 @@ function App(props) {
 
 
 
+
+
   );
 }
 
@@ -138,7 +139,8 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-  add_product: () => dispatch(add_product())
+  add_product: () => dispatch(add_product()),
+  dark_red: () => dispatch(dark_red())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

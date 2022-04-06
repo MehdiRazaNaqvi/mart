@@ -1,4 +1,5 @@
 const ini = {
+
     products: [
         { id: 1, name: "Bata shoes", price: "12,000", img: "https://4-be-cdn.bata.eu/gallery/1/5/e/b/4/a.jpg", des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ad maiores eveniet alias porro saepe eum accusamus totam soluta, aliquam fuga blanditiis delectus? Porro accusantium assumenda illum. Ullam, maiores iure." },
         { id: 2, name: "Hand bag", price: "19,000", img: "https://www.pungles.com/images/com_hikashop/upload/quilted-shoulder-crossbody-gold-chain-faux-leather-white-bag-3.jpg", des: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti magnam molestias quaerat, nihil saepe dolorum illum consequatur provident, necessitatibus sed exercitationem. Distinctio, nemo dolorum inventore tempore labore perferendis non qui." },
@@ -9,7 +10,9 @@ const ini = {
 
 
 
-    ]
+    ],
+
+    darktheme : false
 }
 
 
@@ -18,6 +21,9 @@ export default (state = ini , action) => {
     switch(action.type){
                 case("add"):
                 return {...state , products : [...state.products , action.payload ]} 
+
+                case("theme"):
+                return {...state , darktheme : !state.darktheme}
                 
                 default:
                     return state;
