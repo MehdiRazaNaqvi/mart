@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
   Collapse,
   Navbar,
@@ -7,71 +7,65 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
 
-export default class Example extends React.Component {
+} from 'reactstrap';
 
 
- 
-  constructor(props) {
-    super(props);
+import { dark_red } from '../store/action/action';
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+const Example = (props) => {
 
 
 
 
 
-
-  render() {
 
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand  >Mart</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+        <Navbar className='navbarr' color="light" light expand="md">
+          <NavbarBrand  >IAD Mart Project</NavbarBrand>
+          <NavbarToggler  />
+          <Collapse navbar>
             <Nav className="ml-auto" navbar>
+
+
               <NavItem>
-                <NavLink href="/mart/details/2">Components</NavLink>
+                <select onChange={() => props.dark_red()} className="btn btn-outline-light custom-select mr-sm-2" id="inlineFormCustomSelect">
+
+                  <option defaultChecked value="1">☀️</option>
+                  <option value="2">🌙</option>
+
+                </select>
               </NavItem>
+
+
+
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <button className="btn btn-outline-secondary">Fetch Firebase Items</button>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+
+
+
+              <NavItem>
+                <button className="btn btn-outline-secondary">List Your Product</button>
+              </NavItem>
+
             </Nav>
           </Collapse>
         </Navbar>
       </div>
     );
-  }
+  
 }
+
+
+
+
+
+const mapDispatchToProps = (dispatch) => ({
+     dark_red: () => dispatch(dark_red()),
+})
+
+
+
+export default connect(null , mapDispatchToProps) (Example)
