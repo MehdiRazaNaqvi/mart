@@ -24,6 +24,9 @@ export default (state = ini , action) => {
 
                 case("theme"):
                 return {...state , darktheme : !state.darktheme}
+
+                case("firebase"):
+                return {...state , products : state.products.concat(action.payload)}
                 
                 default:
                     return state;

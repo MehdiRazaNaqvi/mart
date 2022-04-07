@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product , dark_red } from "../store/action/action";
+import { add_product , dark_red , getitems } from "../store/action/action";
 
 
 
@@ -38,6 +38,9 @@ function App(props) {
           <option value="2">🌙</option>
 
         </select>
+
+
+        <button className='btn btn-outline-light' onClick={() => props.getitems()}>Dabao</button>
 
 
 
@@ -140,7 +143,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   add_product: () => dispatch(add_product()),
-  dark_red: () => dispatch(dark_red())
+  dark_red: () => dispatch(dark_red()),
+  getitems: () => dispatch(getitems())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -1,4 +1,8 @@
 
+import {database} from "../../firebase/firebase"
+
+import { ref, onValue} from "firebase/database";
+
 
 
 const add_product = (data) => {
@@ -27,10 +31,52 @@ return(dispatch) => {
 
 
 
+const getitems = () => {
+
+
+
+    return (dispatch) => {
+        console.log("chaklrhga");
+        
+        
+        const starCountRef = ref(database, 'items/');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            // console.log(data)
+
+            const fbdata = Object.values(data)
+            console.log(fbdata)
+
+            dispatch( { type : "firebase" , payload: fbdata} )
+
+
+       
+
+        });
+
+
+
+
+ 
+     
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
 
 
 
 export {
     add_product,
-    dark_red
+    dark_red,
+    getitems
 }
