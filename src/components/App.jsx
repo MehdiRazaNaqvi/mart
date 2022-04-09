@@ -45,7 +45,7 @@ function App(props) {
           </select> */}
 
 
-          <button className='btn btn-outline-light' onClick={() => props.getitems()}>Fetch</button>
+          {/* <button className='btn btn-outline-light' onClick={() => props.getitems()}>Fetch</button> */}
 
 
 
@@ -121,7 +121,7 @@ function App(props) {
 
 
         <div className="right">
-          <button className="btn btn-outline-light" onClick={() => navigate("/mart/add")} >List your product</button>
+          {/* <button className="btn btn-outline-light" onClick={() => navigate("/mart/add")} >List your product</button> */}
         </div>
 
 

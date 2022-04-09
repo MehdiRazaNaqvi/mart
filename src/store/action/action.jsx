@@ -36,7 +36,6 @@ const getitems = () => {
 
 
     return (dispatch) => {
-        console.log("chaklrhga");
         
         
         const starCountRef = ref(database, 'items/');

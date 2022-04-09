@@ -10,12 +10,12 @@ import {
 
 } from 'reactstrap';
 
-
-import { dark_red } from '../store/action/action';
+import { useNavigate } from 'react-router-dom';
+import { getitems ,dark_red } from '../store/action/action';
 
 const Example = (props) => {
 
-
+let navigate = useNavigate();
 
 
 
@@ -41,13 +41,13 @@ const Example = (props) => {
 
 
               <NavItem>
-                <button className="btn btn-outline-secondary">Fetch Firebase Items</button>
+                <button className="btn btn-outline-secondary" onClick={() => props.getitems()} >Fetch Firebase Items</button>
               </NavItem>
 
 
 
               <NavItem>
-                <button className="btn btn-outline-secondary">List Your Product</button>
+                <button className="btn btn-outline-secondary" onClick={() => navigate("/mart/add")} >List Your Product</button>
               </NavItem>
 
             </Nav>
@@ -64,6 +64,7 @@ const Example = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
      dark_red: () => dispatch(dark_red()),
+     getitems: () => dispatch(getitems())
 })
 
 
