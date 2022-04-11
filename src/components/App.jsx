@@ -25,12 +25,12 @@ function App(props) {
 
 
       <div className="nav">
-        <Example/>
+        <Example />
       </div>
 
 
 
-      <div className={props.darktheme? "parent dark" : "parent" }>
+      <div className={props.darktheme ? "parent dark" : "parent"}>
 
 
 
@@ -143,7 +143,7 @@ function App(props) {
 
 const mapStateToProps = (state) => ({
   state: state.products,
-  darktheme : state.darktheme
+  darktheme: state.darktheme
 })
 
 

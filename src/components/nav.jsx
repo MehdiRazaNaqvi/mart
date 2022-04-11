@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 
 import { useNavigate } from 'react-router-dom';
-import { getitems, dark_red } from '../store/action/action';
+import { getitems, dark_red, google_login } from '../store/action/action';
 
 const Example = (props) => {
 
@@ -35,8 +35,6 @@ const Example = (props) => {
                 <option value="1">☀️</option>
                 <option value="2">🌙</option>
 
-
-
               </select>
             </NavItem>
 
@@ -49,7 +47,12 @@ const Example = (props) => {
 
 
             <NavItem>
-              <button className="btn btn-outline-secondary" onClick={() => navigate("/mart/add")} >List Your Product</button>
+              {/* <button className="btn btn-outline-secondary" onClick={() => navigate("/mart/add")} >List Your Product</button> */}
+              <button className="btn btn-outline-secondary" onClick={() => props.google_login()} >Sign in</button>
+            </NavItem>
+
+            <NavItem>
+             {2+2==4? null : "raza" }
             </NavItem>
 
           </Nav>
@@ -66,11 +69,12 @@ const Example = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   dark_red: () => dispatch(dark_red()),
-  getitems: () => dispatch(getitems())
+  getitems: () => dispatch(getitems()),
+  google_login: () => dispatch(google_login())
 })
 
 
 
 
 
-export default connect( null , mapDispatchToProps)(Example)
+export default connect(null, mapDispatchToProps)(Example)
