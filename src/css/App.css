@@ -226,3 +226,41 @@ span {
   height: 100%;
 }
 
+
+
+.ml-auto{
+  width: 100%;
+  /* background-color : blue; */
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+
+.nav2{
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nav1{
+  /* background-color: pink; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
+
+.choti_img{
+  width: 35px;
+  max-width: 35px;
+  height: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 10px;
+}

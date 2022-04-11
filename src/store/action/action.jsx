@@ -74,9 +74,9 @@ const getitems = () => {
 
 
 const google_login = () => {
-    return () => {
+    return (dispatch) => {
 
-        console.log("hahahahhahahah")
+        // console.log("hahahahhahahah")
 
 
 
@@ -88,7 +88,10 @@ const google_login = () => {
                 const token = credential.accessToken;
 
                 const user = result.user;
-                console.log(user.displayName)
+                const client = { name: user.displayName, photo: user.photoURL }
+                dispatch({ type: "sign", payload: client })
+
+
             }).catch((error) => {
 
                 // const errorCode = error.code;
@@ -99,6 +102,8 @@ const google_login = () => {
                 // const credential = GoogleAuthProvider.credentialFromError(error);
 
             });
+
+        
 
 
 

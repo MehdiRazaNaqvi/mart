@@ -13,7 +13,7 @@ const ini = {
     ],
 
     darktheme: false,
-    user: {}
+    user: {name : ""}
 }
 
 
