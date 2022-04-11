@@ -19,7 +19,10 @@ const App = (props) => {
 
     return (
 
-        <body className={props.darktheme? "dark" : null} >
+
+
+
+        <body className={props.darktheme? "dark bara" : "bara"} >
             
         
 
@@ -60,9 +63,11 @@ const App = (props) => {
 
 
         </body>
+
+
+        
     )
 }
-
 
 
 
