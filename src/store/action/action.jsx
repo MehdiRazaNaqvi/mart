@@ -1,11 +1,11 @@
 
-import { database } from "../../firebase/firebase"
+import { database, auth } from "../../firebase/firebase"
 
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, set } from "firebase/database";
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-import { auth } from "../../firebase/firebase"
+
 
 
 
@@ -13,7 +13,7 @@ import { auth } from "../../firebase/firebase"
 const add_product = (data) => {
     return (dispatch) => {
 
-
+        writeUserData(data)
         dispatch({ type: "add", payload: data })
 
 
@@ -46,10 +46,10 @@ const getitems = () => {
         const starCountRef = ref(database, 'items/');
         onValue(starCountRef, (snapshot) => {
             const data = snapshot.val();
-            // console.log(data)
+            console.log(data)
 
             const fbdata = Object.values(data)
-            console.log(fbdata)
+            // console.log(fbdata)
 
             dispatch({ type: "firebase", payload: fbdata })
 
@@ -103,7 +103,7 @@ const google_login = () => {
 
             });
 
-        
+
 
 
 
@@ -115,9 +115,43 @@ const google_login = () => {
 
 
 
+const writeUserData = (data) => {
+
+
+
+        var rnd = "";
+        var char = "ABJNDKJCDWCNCKNLWDjbjbdcnwkdncjwdnc"
+        for (var i = 0 ; i < char.length ; i++  ){
+
+
+                rnd += char.charAt(Math.floor(Math.random() * char.length))
+
+        }
+
+
+      set(ref(database, 'items/' + rnd  ), {
+
+        name : data.name,
+        img : data.img,
+        id : rnd,
+        des : data.des,
+        price : data.price
+
+
+      });
+
+
+}
+
+
+
+
+
+
 export {
     add_product,
     dark_red,
     getitems,
-    google_login
+    google_login,
+    writeUserData
 }

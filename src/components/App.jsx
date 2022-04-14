@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product, dark_red, getitems } from "../store/action/action";
+import { add_product, dark_red, getitems , writeUserData } from "../store/action/action";
 import Example from "./nav"
 
 
@@ -30,6 +30,7 @@ function App(props) {
         <Example />
       </div>
 
+        <button onClick={() => writeUserData()} >DATABASE</button>
 
 
       <div className={props.darktheme ? "parent dark" : "parent"}>
@@ -152,7 +153,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
-  getitems: () => dispatch(getitems())
+  getitems: () => dispatch(getitems()),
+  
 
 })
 
