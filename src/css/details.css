@@ -1,3 +1,6 @@
+
+
+
 .one {
     width: 100vw;
     height: 100vh;
@@ -146,3 +149,67 @@ h1 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+.one{
+    height: 50vh;
+    /* background-color: yellow; */
+    
+    flex-direction: column;
+}
+
+.content , .pic{
+    width: 100%;
+    height: 50%;
+
+  }
+
+  .itemm{
+      height: 20%;
+  }
+
+  h4{
+      font-size: 5px;
+  }
+  h1{
+      font-size: large;
+  }
+  h3{
+      font-size: x-small;
+  }
+
+  h2{
+      font-size: small;
+  }
+
+  .item_sl{
+      
+    border-left: 1px solid orange;
+  }
+
+
+.btn{
+    font-size: x-small;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+    
+}

@@ -8,17 +8,29 @@ import {
   Nav,
   NavItem,
 
+
 } from 'reactstrap';
 
 import { useNavigate } from 'react-router-dom';
 import { getitems, dark_red, google_login } from '../store/action/action';
 
+
+
+
+
+
+
+
+
+
+
 const Example = (props) => {
+
 
   let navigate = useNavigate();
 
 
-  // console.log(props.user.photo)
+  // console.log(props.user)
 
   return (
     <div>
@@ -91,3 +103,68 @@ const mapStateToProps = (state) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Example)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,18 +2,20 @@ import { useNavigate, useParams } from "react-router-dom"
 import { connect } from 'react-redux';
 import "../css/details.css";
 
+
+
 const Details = (props) => {
 
     // console.log(props.state)
     let product = {}
-    const { id } = useParams()
+    const { name } = useParams()
     let navigate = useNavigate()
 
 
 
 
 
-    { props.state.map((v) => { if (v.id == id) { product = v } }) }
+    { props.state.map((v) => { if (v.name == name) { product = v } }) }
     console.log(product)
 
 
@@ -50,5 +52,6 @@ const mapStateToProps = (state) => ({
     state: state.products,
     darktheme: state.darktheme
 })
+
 
 export default connect(mapStateToProps, null)(Details)

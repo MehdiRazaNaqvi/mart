@@ -1,23 +1,54 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product, dark_red, getitems , writeUserData } from "../store/action/action";
+import { add_product, dark_red, getitems } from "../store/action/action";
 import Example from "./nav"
+
+
+import Load from "./load.jsx"
+
+
+
 
 
 
 function App(props) {
 
 
-  
+  let navigate = useNavigate()
+
+
+
+
+
+  useEffect(() => {
+
+    console.log("arha hai apun")
+    // setTimeout( navigate("/mart/loader") , 5000);
+
+
+    if (props.state.length < 9) {
+      props.getitems()
+    }
+
+
+
+
+
+
+
+  }, [1000])
+
+
+
 
   const [search, setsearch] = useState({ var: "", bool: false });
 
 
 
-  let navigate = useNavigate()
+
 
 
 
@@ -30,7 +61,6 @@ function App(props) {
         <Example />
       </div>
 
-        <button onClick={() => writeUserData()} >DATABASE</button>
 
 
       <div className={props.darktheme ? "parent dark" : "parent"}>
@@ -63,8 +93,10 @@ function App(props) {
 
 
           <div className="search">
-            <p>Search</p>
-            <input className="form-control" id="exampleInputEmail1" onChange={(e) => {
+
+            <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
+
+            {/* <input placeholder='Search' className="form-control" id="exampleInputEmail1" onChange={(e) => {
 
 
               setsearch({ var: e.target.value })
@@ -72,7 +104,8 @@ function App(props) {
 
 
 
-            }} type="text" />
+            }} type="text" /> */}
+
           </div>
 
 
@@ -84,13 +117,13 @@ function App(props) {
             {props.state.map((v, i) => (
 
 
-              <span className={search.var == "" ? null : "invisible"} key={i}>
+              <span className={search.var == "" ? "span" : "span invisible"} key={i}>
 
 
                 {/* {search.var.includes(v.name) ? setsearch({ ...search, bool: true }) : null} */}
 
 
-                <div onClick={() => navigate(`/mart/details/${v.id}`)} className="card">
+                <div onClick={() => navigate(`/mart/details/${v.name}`)} className="card">
 
                   <img src={v.img} className="card-img" />
                   <div className="card-img-overlay">
@@ -134,6 +167,11 @@ function App(props) {
 
 
 
+
+
+
+
+
     </div>
 
 
@@ -154,7 +192,7 @@ const mapDispatchToProps = (dispatch) => ({
   add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
   getitems: () => dispatch(getitems()),
-  
+
 
 })
 

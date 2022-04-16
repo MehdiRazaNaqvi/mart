@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom"
 import "../css/add.css";
 import { useState } from 'react';
-import { add_product } from "../store/action/action"
+import { add_product , writeUserData } from "../store/action/action"
 
 
 
@@ -58,7 +58,7 @@ const App = (props) => {
             </div>
 
 
-            <button onClick={() => { props.add_product(data); navigate("/mart") }} className="btn btn-outline-success">Add to Our Mart</button>
+            <button onClick={() => { props.writeUserData(data) ; props.add_product(data); navigate("/mart") }} className="btn btn-outline-success">Add to Our Mart</button>
         </div>
 
 
@@ -82,6 +82,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     add_product: (data) => dispatch(add_product(data)),
+    writeUserData : (data) => dispatch(writeUserData(data))
 
 })
 
