@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
 import { add_product, dark_red, getitems } from "../store/action/action";
 import Example from "./nav"
-
+import axios from "axios"
 
 import Load from "./load.jsx"
 
@@ -19,9 +19,12 @@ function App(props) {
 
   let navigate = useNavigate()
 
+  const api_call = "7973f7c02b999b1d3504034b5a019ef1";
+  const api_url = "https://api.openweathermap.org/data/2.5/weather?"
 
-
-
+  const [lat, setlat] = useState("");
+  const [lon, setlon] = useState("");
+  const [place, setplace] = useState("");
 
   useEffect(() => {
 
@@ -30,16 +33,23 @@ function App(props) {
 
 
     if (props.state.length < 9) {
-      props.getitems()
+      // props.getitems()
     }
 
+    navigator.geolocation.getCurrentPosition((p) => { setlat(p.coords.latitude); setlon(p.coords.longitude) })
+    // console.log(`${api_url}lat=${lat}&lon=${lon}&appid=${api_call}`);
+
+
+    { lat !== ""? fetch_place()  : console.log("not now") }
+
+  
 
 
 
 
 
+  }, [])
 
-  }, [1000])
 
 
 
@@ -49,7 +59,10 @@ function App(props) {
 
 
 
-
+  const fetch_place = () => {
+    axios.get(`${api_url}lat=${lat}&lon=${lon}&appid=${api_call}`)
+      .then((res) => setplace(res.data.name))
+  }
 
 
   return (
@@ -59,6 +72,7 @@ function App(props) {
 
       <div className="nav">
         <Example />
+
       </div>
 
 
@@ -108,7 +122,7 @@ function App(props) {
 
           </div>
 
-
+          {place != "" ? `Popular in ${place}` : null}
 
           <div className="main">
 
@@ -178,7 +192,7 @@ function App(props) {
 
 
 
-  );
+  )
 }
 
 
