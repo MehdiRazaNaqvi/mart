@@ -164,10 +164,23 @@ const writeUserData = (data) => {
 
 
 
+
+
+const add_to_cart = (v) => {
+    return (dispatch) => {
+        
+        dispatch({type : "add_to_cart" , payload : v})
+    }
+}
+
+
+
+
 export {
     add_product,
     dark_red,
     getitems,
     google_login,
-    writeUserData
+    writeUserData,
+    add_to_cart
 }

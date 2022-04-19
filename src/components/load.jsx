@@ -1,10 +1,12 @@
+import BadgeAvatars from "./navbar"
+
 const App = () => {
 
 return(
     <div>
-        <h1>
-            Loaderrr
-        </h1>
+        
+            <BadgeAvatars/>
+        
     </div>
 )
 

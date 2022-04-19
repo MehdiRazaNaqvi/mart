@@ -74,7 +74,7 @@ body {
 
 
 
-.cover{
+.cover {
   width: 100%;
   height: 100%;
 }
@@ -239,11 +239,10 @@ span {
 
 
 
-
 .nav {
   width: 100%;
-  height: 7%;
-  /* height: max-content ; */
+  /* height: 20%; */
+  height: min-content;
   background-color: pink;
 
 
@@ -279,8 +278,26 @@ span {
   align-items: center;
   justify-content: center;
 
+
+
 }
 
+
+.btn-outline-secondary{
+  border: none; 
+}
+
+.btn-outline-secondary:hover{
+  background-color: transparent;
+  color: black;
+
+}
+
+.btn-outline-secondary::after{
+  background-color: transparent;
+  color: black;
+
+}
 
 
 
@@ -288,13 +305,45 @@ span {
   width: 35px;
   max-width: 35px;
   height: 35px;
-  height: 35px;
+  max-height: 35px;
   border-radius: 50%;
   margin-left: 10px;
 }
 
 
 
+.signbtn , .signimg{
+  display: none;
+}
+
+
+
+
+
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+
+  .left,
+  .right {
+    display: none;
+  }
+
+  .center {
+    width: 100%;
+
+  }
+  .signbtn{
+    display: block;
+    font-size: small;
+    color: black;
+  }
+
+  .signimg{
+    display: flex;
+  }
+
+  
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -304,7 +353,7 @@ span {
     height: 20%;
     display: flex;
     align-items: center;
-  
+
   }
 
 
@@ -323,37 +372,44 @@ span {
   }
 
   .main {
-    grid-template-columns: repeat(2 , 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    /* grid-template-rows: repeat(9, 1fr); */
     /* background-color: red; */
     row-gap: 2px;
     column-gap: 2px;
   }
 
-  .form-control {
-    background-color: transparent;
-  }
-
-  .form-control:hover {
-    background-color: transparent;
-  }
 
   .main {
     height: 80%;
   }
 
-    .center{
-      width: 100%;
-      margin-left: 3vw;
-      margin-right: 3vw;
-    }
-  
+  .center {
+    width: 100%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
 
-    .span{
-      max-height: 13vh;
-      min-height: 13vh;
-    }
 
- 
+  .span {
+    max-height: 13vh;
+    min-height: 13vh;
+  }
+
+  .signbtn {
+    display: block;
+    font-size: xx-small;
+    border: none;
+    color: black;
+  }
+
+
+  .signimg{
+    display: flex;
+    width: 8%;
+    height: 5%;
+  }
+
 
 }

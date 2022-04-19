@@ -24,6 +24,7 @@ import { getitems, dark_red, google_login } from '../store/action/action';
 
 
 
+
 const Example = (props) => {
 
 
@@ -31,12 +32,20 @@ const Example = (props) => {
 
 
   // console.log(props.user)
+  
 
   return (
+
     <div>
       <Navbar className='navbarr' color="light" light expand="md">
-        <NavbarBrand link="/mart" >IAD Mart Project</NavbarBrand>
-        <NavbarToggler />
+        <NavbarBrand onClick={() => navigate("/mart")} >IAD Mart Project</NavbarBrand>
+
+
+        { props.user.name ==""? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img className='choti_img signimg' src={props.user.photo} /> }
+
+
+        {/* <NavbarToggler /> */}
+
         <Collapse navbar>
           <Nav className="ml-auto" navbar>
 
@@ -58,8 +67,6 @@ const Example = (props) => {
                 <button className="btn btn-outline-secondary" onClick={() => props.getitems()} >Fetch Firebase Items</button>
               </NavItem>
 
-
-
               <NavItem>
                 <button className="btn btn-outline-secondary" onClick={() => navigate("/mart/add")} >List Your Product</button>
               </NavItem>
@@ -72,8 +79,10 @@ const Example = (props) => {
 
 
             <NavItem className='user nav2' >
+
               {props.user.name !== "" ? props.user.name : null}
               {props.user.name !== "" ? <img className='choti_img' src={props.user.photo} /> : null}
+            
             </NavItem>
 
           </Nav>
@@ -96,7 +105,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  cart : state.cart
 })
 
 
