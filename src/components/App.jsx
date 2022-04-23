@@ -6,10 +6,6 @@ import "../css/App.css";
 import { add_product, dark_red, getitems } from "../store/action/action";
 import Example from "./nav"
 
-import AppBar from '@mui/material/AppBar';
-
-import Load from "./load.jsx"
-import Navbar from "./navbar"
 
 
 
@@ -33,6 +29,7 @@ function App(props) {
 
     if (props.state.length < 9) {
       props.getitems()
+      
     }
 
 
@@ -96,6 +93,8 @@ function App(props) {
           <div className="search">
 
             <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
+
+
 
             {/* <input placeholder='Search' className="form-control" id="exampleInputEmail1" onChange={(e) => {
 

@@ -29,7 +29,16 @@ const Details = (props) => {
         <div className={props.darktheme ? "one dark" : "one"} >
 
 
-                <Example/>
+            <div className="nav">
+
+
+                <Example />
+            </div>
+
+
+
+
+
 
             <div className="details_div">
 

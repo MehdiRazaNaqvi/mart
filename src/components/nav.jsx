@@ -14,7 +14,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { getitems, dark_red, google_login } from '../store/action/action';
 
-
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
 
 
@@ -31,8 +31,8 @@ const Example = (props) => {
   let navigate = useNavigate();
 
 
-  // console.log(props.user)
-  
+  console.log(props.cart)
+
 
   return (
 
@@ -41,8 +41,16 @@ const Example = (props) => {
         <NavbarBrand onClick={() => navigate("/mart")} >IAD Mart Project</NavbarBrand>
 
 
-        { props.user.name ==""? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img className='choti_img signimg' src={props.user.photo} /> }
+        <div className='navright' >
 
+          <button type="button" class="btn cartnav cartnav1 btn-outline-primary">
+            <AddShoppingCartOutlinedIcon className='actualcart' /> <span class="badge badge-light">{props.cart.length}</span>
+
+          </button>
+
+
+          {props.user.name == "" ? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img className='choti_img signimg' src={props.user.photo} />}
+        </div>
 
         {/* <NavbarToggler /> */}
 
@@ -80,9 +88,17 @@ const Example = (props) => {
 
             <NavItem className='user nav2' >
 
-              {props.user.name !== "" ? props.user.name : null}
+              <button type="button" class="btn cartnav btn-outline-primary">
+                <AddShoppingCartOutlinedIcon /> <span class="badge badge-light">{props.cart.length}</span>
+
+              </button>
+
+
+
+
+              {/* {props.user.name !== "" ? props.user.name : null} */}
               {props.user.name !== "" ? <img className='choti_img' src={props.user.photo} /> : null}
-            
+
             </NavItem>
 
           </Nav>
@@ -106,7 +122,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  cart : state.cart
+  cart: state.cart
 })
 
 

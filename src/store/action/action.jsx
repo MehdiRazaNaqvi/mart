@@ -1,7 +1,7 @@
 
 import { database, auth } from "../../firebase/firebase"
 
-import { ref, onValue, set, get, child , getDatabase } from "firebase/database";
+import { ref, onValue, set, get, child, getDatabase } from "firebase/database";
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -43,6 +43,8 @@ const getitems = () => {
 
     return (dispatch) => {
 
+        console.log("chalrha")
+
 
         // const starCountRef = ref(database, 'items/');
         // onValue(starCountRef, (snapshot) => {
@@ -58,22 +60,42 @@ const getitems = () => {
 
 
 
-        const dbRef = ref(getDatabase());
-        get(child(dbRef, `items/`)).then((snapshot) => {
-            if (snapshot.exists()) {
-                // console.log(snapshot.val());
-                
-                const fbdata = Object.values(snapshot.val())
-                // console.log(fbdata)
+        // const dbRef = ref(getDatabase());
+        // get(child(dbRef, `items/`)).then((snapshot) => {
+        //     if (snapshot.exists()) {
+        //         // console.log(snapshot.val());
+
+        //         const fbdata = Object.values(snapshot.val())
+        //         // console.log(fbdata)
+        //     dispatch({ type: "firebase", payload: fbdata })
+
+        //     } else {
+        //         console.log("No data available");
+        //     }
+        // }).catch((error) => {
+        //     console.error(error);
+        // });
+
+
+
+
+
+
+        const db = getDatabase();
+
+
+        return onValue(ref(db, '/items/'), (snapshot) => {
+            const fbdata = Object.values(snapshot.val() );
+
+
+            // console.log(fbdata)
             dispatch({ type: "firebase", payload: fbdata })
 
-            } else {
-                console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
+            
 
+        }, {
+            onlyOnce: true
+        });
 
 
 
@@ -168,8 +190,8 @@ const writeUserData = (data) => {
 
 const add_to_cart = (v) => {
     return (dispatch) => {
-        
-        dispatch({type : "add_to_cart" , payload : v})
+
+        dispatch({ type: "add_to_cart", payload: v })
     }
 }
 
