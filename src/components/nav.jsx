@@ -31,7 +31,6 @@ const Example = (props) => {
   let navigate = useNavigate();
 
 
-  console.log(props.cart)
 
 
   return (
@@ -43,10 +42,10 @@ const Example = (props) => {
 
         <div className='navright' >
 
-          <button type="button" class="btn cartnav cartnav1 btn-outline-primary">
-            <AddShoppingCartOutlinedIcon className='actualcart' /> <span class="badge badge-light">{props.cart.length}</span>
+          <span className="cartnav cartnav1 `">
+            <AddShoppingCartOutlinedIcon className='actualcart' onClick={() => navigate("/mart/cart")} /> <span className="badge badge-light">{props.cart.length}</span>
 
-          </button>
+          </span>
 
 
           {props.user.name == "" ? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img className='choti_img signimg' src={props.user.photo} />}
@@ -88,10 +87,10 @@ const Example = (props) => {
 
             <NavItem className='user nav2' >
 
-              <button type="button" class="btn cartnav btn-outline-primary">
-                <AddShoppingCartOutlinedIcon /> <span class="badge badge-light">{props.cart.length}</span>
+              <span onClick={() => navigate("/mart/cart")}  className="cartnav">
+                <AddShoppingCartOutlinedIcon /> <span className="badge badge-light">{props.cart.length}</span>
 
-              </button>
+              </span>
 
 
 

@@ -85,13 +85,13 @@ const getitems = () => {
 
 
         return onValue(ref(db, '/items/'), (snapshot) => {
-            const fbdata = Object.values(snapshot.val() );
+            const fbdata = Object.values(snapshot.val());
 
 
             // console.log(fbdata)
             dispatch({ type: "firebase", payload: fbdata })
 
-            
+
 
         }, {
             onlyOnce: true
@@ -113,13 +113,15 @@ const getitems = () => {
 const google_login = () => {
     return (dispatch) => {
 
-        // console.log("hahahahhahahah")
+        console.log("hahahahhahahah")
 
 
 
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
+                console.log("hahahahhahahah")
+
 
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
@@ -131,9 +133,9 @@ const google_login = () => {
 
             }).catch((error) => {
 
-                // const errorCode = error.code;
-                // const errorMessage = error.message;
-
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage)
                 // const email = error.email;
 
                 // const credential = GoogleAuthProvider.credentialFromError(error);

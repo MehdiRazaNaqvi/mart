@@ -6,7 +6,9 @@ import Details from "./Details.jsx"
 
 import Add from "./Addproducts.jsx"
 
-import Load from "./load.jsx"
+import Load from "./load.jsx";
+
+import Cart from "./cart.jsx";
 
 import { BrowserRouter as Router , Routes , Route } from "react-router-dom"
 
@@ -24,7 +26,8 @@ const App = () => {
 
                     <Route path="/mart/add" element={<Add/>} />
 
-                    <Route exact path="/mart/loader" element={<Load/>} />
+                    <Route exact path="/mart/cart" element={<Cart/>} />
+
 
 
                 </Routes>
