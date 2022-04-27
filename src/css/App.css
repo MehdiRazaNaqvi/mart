@@ -32,7 +32,7 @@ body {
   display: flex;
   justify-content: center;
 
-  transition: all 1.5s linear;
+  transition: all 1s linear;
 
 
 }
@@ -67,7 +67,7 @@ body {
 
   width: 100%;
   height: 20%;
-  transition: all 1.5s linear;
+  transition: all 1s linear;
   background-position-y: center;
 
 }
@@ -85,7 +85,7 @@ body {
 
 
 .main {
-  transition: all 1.5s linear;
+  transition: all 1s linear;
 
 
   /* background-color: rgb(235, 235, 235); */
@@ -135,7 +135,7 @@ span {
 
 
 .card {
-  transition: all 1s linear;
+  transition: all 0.3s linear;
 }
 
 .card:hover {
@@ -444,7 +444,7 @@ span {
   .signbtn {
     display: flex;
     font-size: xx-small;
-    /* border: none; */
+    /* border: none; */ 
     color: black;
     
   }
@@ -452,8 +452,8 @@ span {
 
   .signimg {
     display: flex;
-    width: 9vw;
-    height: 6vh;
+    width: 8vw;
+    height: 4vh;
   }
 
 

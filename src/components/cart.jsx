@@ -6,6 +6,9 @@ import "../css/cart.css"
 
 const Cart = (props) => {
 
+
+    
+
     let total = 0;
 
 
@@ -17,7 +20,7 @@ const Cart = (props) => {
 
     return (
 
-        <div className="cart0" >
+        <div className= {props.darktheme == false? "cart0" :"cart0 dark"} >
 
             <Example />
 
@@ -29,7 +32,7 @@ const Cart = (props) => {
 
 
                     {props.cart.map((v, i) => (
-                        <span className="cartrow" key={i} >
+                        <span className= {props.darktheme== false?  "cartrow" : "cartrow dark" }  key={i} >
                             <p> {v.name} </p>
 
 
@@ -72,7 +75,8 @@ const Cart = (props) => {
 
 
 const mapStateToProps = (state) => ({
-    cart: state.cart
+    cart: state.cart,
+    darktheme : state.darktheme
 })
 
 export default connect(mapStateToProps, null)(Cart)

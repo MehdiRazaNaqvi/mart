@@ -6,8 +6,6 @@ import Details from "./Details.jsx"
 
 import Add from "./Addproducts.jsx"
 
-import Load from "./load.jsx";
-
 import Cart from "./cart.jsx";
 
 import { BrowserRouter as Router , Routes , Route } from "react-router-dom"

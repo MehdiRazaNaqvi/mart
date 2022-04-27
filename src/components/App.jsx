@@ -92,7 +92,8 @@ function App(props) {
 
           <div className="search">
 
-            <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
+            {/* <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />  */}
+            <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' /> 
 
 
 
