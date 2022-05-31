@@ -7,6 +7,8 @@ import { add_product, dark_red, getitems } from "../store/action/action";
 import Example from "./nav"
 
 
+import { useLayoutEffect } from 'react';
+
 
 
 
@@ -21,6 +23,8 @@ function App(props) {
 
 
 
+
+
   useEffect(() => {
 
     console.log("arha hai apun")
@@ -29,8 +33,9 @@ function App(props) {
 
     if (props.state.length < 9) {
       props.getitems()
-      
+
     }
+
 
 
   }, [])
@@ -66,8 +71,6 @@ function App(props) {
 
         <div className="left" >
 
-
-
           {/* <select onChange={() => props.dark_red() } className="btn btn-outline-light custom-select mr-sm-2" id="inlineFormCustomSelect">
 
             <option defaultChecked value="1">☀️</option>
@@ -93,7 +96,7 @@ function App(props) {
           <div className="search">
 
             {/* <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />  */}
-            <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' /> 
+            <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
 
 
 
@@ -192,7 +195,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
-  getitems: () => dispatch(getitems()),
+  getitems: () => dispatch(getitems())
 
 
 })

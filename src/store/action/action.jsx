@@ -111,9 +111,23 @@ const getitems = () => {
 
 
 const google_login = () => {
+
+
+
+
+    const headers = {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': '*'
+    }
+
+
+
+
     return (dispatch) => {
 
-        console.log("hahahahhahahah")
+
 
 
 
@@ -128,6 +142,18 @@ const google_login = () => {
 
                 const user = result.user;
                 const client = { name: user.displayName, photo: user.photoURL }
+
+                fetch('/adduser', {
+
+                    method: 'post',
+                    body: JSON.stringify(client),
+                    headers: headers
+
+
+
+                })
+
+
                 dispatch({ type: "sign", payload: client })
 
 
@@ -141,6 +167,7 @@ const google_login = () => {
                 // const credential = GoogleAuthProvider.credentialFromError(error);
 
             });
+
 
 
 
@@ -200,11 +227,13 @@ const add_to_cart = (v) => {
 
 
 
+
+
 export {
     add_product,
     dark_red,
     getitems,
     google_login,
     writeUserData,
-    add_to_cart
+    add_to_cart,
 }
