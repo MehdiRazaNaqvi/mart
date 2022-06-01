@@ -226,6 +226,12 @@ const add_to_cart = (v) => {
 
 
 
+const filter = () => {
+    return (dispatch) => {
+        dispatch({type : "filter" , payload:"bag"})
+    }
+}
+
 
 
 
@@ -236,4 +242,5 @@ export {
     google_login,
     writeUserData,
     add_to_cart,
+    filter
 }

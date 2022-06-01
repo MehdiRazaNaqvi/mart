@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product, dark_red, getitems } from "../store/action/action";
+import { add_product, dark_red, getitems , filter } from "../store/action/action";
 import Example from "./nav"
 
 
@@ -22,6 +22,7 @@ function App(props) {
 
 
 
+   
 
 
 
@@ -47,6 +48,7 @@ function App(props) {
   const [search, setsearch] = useState({ var: "", bool: false });
 
 
+ 
 
 
 
@@ -70,7 +72,7 @@ function App(props) {
 
 
         <div className="left" >
-
+          <button onClick={() => props.filter()}>FILTER</button>
           {/* <select onChange={() => props.dark_red() } className="btn btn-outline-light custom-select mr-sm-2" id="inlineFormCustomSelect">
 
             <option defaultChecked value="1">☀️</option>
@@ -195,7 +197,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
-  getitems: () => dispatch(getitems())
+  getitems: () => dispatch(getitems()),
+  filter: () => dispatch(filter())
 
 
 })
