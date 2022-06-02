@@ -31,8 +31,8 @@ const Details = (props) => {
 
             <div className="nav">
 
-
                 <Example />
+                
             </div>
 
 

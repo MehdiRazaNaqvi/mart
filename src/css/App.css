@@ -66,9 +66,17 @@ body {
   background-color: rgb(255, 255, 255);
 
   width: 100%;
-  height: 20%;
+  /* height: 25%; */
+  height: 20vh;
+  min-height: 10vh;
+  /* min-height: ; */
   transition: all 1s linear;
   background-position-y: center;
+
+
+  display: flex;
+  flex-direction: column;
+  
 
 }
 
@@ -78,9 +86,31 @@ body {
 
 .cover {
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 
+
+.search-span{
+  display: flex;
+  height: 20%;
+  /* background-color: green; */
+  width: 100%;
+
+  justify-content: center;
+}
+
+
+.form-control{
+  width: 50%;
+  font-size: xx-small;
+}
+
+
+.search-btn{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
 
 
@@ -320,7 +350,6 @@ span {
 
 
 
-
 .badge{
   display: inline;
   color: red;
@@ -346,7 +375,10 @@ span {
 
 
 
-
+.card-title{
+  font-size: xx-small;
+  color: rgb(86, 86, 86);
+}
 
 
 @media screen and (min-width: 600px) and (max-width: 767px) {

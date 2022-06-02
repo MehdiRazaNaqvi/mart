@@ -10,17 +10,17 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 
 
-const add_product = (data) => {
-    return (dispatch) => {
-        // console.log(data)
+// const add_product = (data) => {
+//     return (dispatch) => {
+//         // console.log(data)
 
-        // writeUserData(data)
-        dispatch({ type: "add", payload: data })
+//         // writeUserData(data)
+//         dispatch({ type: "add", payload: data })
 
 
 
-    }
-}
+//     }
+// }
 
 
 
@@ -93,9 +93,10 @@ const getitems = () => {
 
 
 
-        }, {
-            onlyOnce: true
         });
+        // , {
+        //     onlyOnce: true
+        // });
 
 
 
@@ -107,6 +108,7 @@ const getitems = () => {
 
 
 }
+
 
 
 
@@ -226,9 +228,10 @@ const add_to_cart = (v) => {
 
 
 
-const filter = () => {
+const filter = (searchword) => {
+
     return (dispatch) => {
-        dispatch({type : "filter" , payload:"bag"})
+        dispatch({type : "filter" , payload : searchword})
     }
 }
 
@@ -236,7 +239,7 @@ const filter = () => {
 
 
 export {
-    add_product,
+    // add_product,
     dark_red,
     getitems,
     google_login,

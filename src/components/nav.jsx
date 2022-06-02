@@ -37,7 +37,7 @@ const Example = (props) => {
 
     <div>
       <Navbar className='navbarr' color="light" light expand="md">
-        <NavbarBrand onClick={() => navigate("/mart")} >IAD Mart Project</NavbarBrand>
+        <NavbarBrand onClick={() => {navigate("/mart") ; props.getitems()}} >IAD Mart Project</NavbarBrand>
 
 
         <div className='navright' >

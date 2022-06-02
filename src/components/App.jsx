@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { add_product, dark_red, getitems , filter } from "../store/action/action";
+import { dark_red, getitems, filter } from "../store/action/action";
 import Example from "./nav"
 
 
 import { useLayoutEffect } from 'react';
+
+
 
 
 
@@ -22,21 +24,15 @@ function App(props) {
 
 
 
-   
+
 
 
 
   useEffect(() => {
 
-    console.log("arha hai apun")
-    // setTimeout( navigate("/mart/loader") , 5000);
+    console.log("fetching items")
 
-
-    if (props.state.length < 9) {
-      props.getitems()
-
-    }
-
+    props.getitems()
 
 
   }, [])
@@ -45,16 +41,14 @@ function App(props) {
 
 
 
-  const [search, setsearch] = useState({ var: "", bool: false });
 
-
- 
-
+  const [searchword, setsearchword] = useState("");
 
 
 
 
   return (
+
 
     <div className="maha">
 
@@ -72,7 +66,6 @@ function App(props) {
 
 
         <div className="left" >
-          <button onClick={() => props.filter()}>FILTER</button>
           {/* <select onChange={() => props.dark_red() } className="btn btn-outline-light custom-select mr-sm-2" id="inlineFormCustomSelect">
 
             <option defaultChecked value="1">☀️</option>
@@ -97,20 +90,14 @@ function App(props) {
 
           <div className="search">
 
-            {/* <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />  */}
+
+
             <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
 
-
-
-            {/* <input placeholder='Search' className="form-control" id="exampleInputEmail1" onChange={(e) => {
-
-
-              setsearch({ var: e.target.value })
-
-
-
-
-            }} type="text" /> */}
+            <span className='search-span'>
+              <input onChange={(e) => setsearchword(e.target.value)} type="text" className='form-control' placeholder='Search' />
+              <button className='search-btn btn btn-outline-primary' onClick={() => searchword != "" ? props.filter(searchword) : null}>Go</button>
+            </span>
 
           </div>
 
@@ -123,7 +110,7 @@ function App(props) {
             {props.state.map((v, i) => (
 
 
-              <span className={search.var == "" ? "span" : "span invisible"} key={i}>
+              <span className="span" key={i}>
 
 
                 {/* {search.var.includes(v.name) ? setsearch({ ...search, bool: true }) : null} */}
@@ -195,10 +182,10 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-  add_product: () => dispatch(add_product()),
+  // add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
   getitems: () => dispatch(getitems()),
-  filter: () => dispatch(filter())
+  filter: (searchword) => dispatch(filter(searchword))
 
 
 })
