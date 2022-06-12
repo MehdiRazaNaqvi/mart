@@ -145,7 +145,7 @@ const google_login = () => {
                 const user = result.user;
                 const client = { name: user.displayName, photo: user.photoURL }
 
-                fetch('/adduser', {
+                fetch('http://localhost:4000/adduser', {
 
                     method: 'post',
                     body: JSON.stringify(client),
@@ -228,12 +228,16 @@ const add_to_cart = (v) => {
 
 
 
+
+
 const filter = (searchword) => {
 
     return (dispatch) => {
-        dispatch({type : "filter" , payload : searchword})
+        dispatch({ type: "filter", payload: searchword })
     }
 }
+
+
 
 
 
@@ -245,5 +249,5 @@ export {
     google_login,
     writeUserData,
     add_to_cart,
-    filter
+    filter,
 }

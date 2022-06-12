@@ -3,15 +3,12 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../css/App.css";
-import { dark_red, getitems, filter } from "../store/action/action";
+import { dark_red, getitems, filter , addcartbyvoice } from "../store/action/action";
 import Example from "./nav"
 
+import alanBtn from "@alan-ai/alan-sdk-web"
 
 import { useLayoutEffect } from 'react';
-
-
-
-
 
 
 
@@ -20,6 +17,36 @@ function App(props) {
 
 
   let navigate = useNavigate()
+
+
+
+
+  useEffect(() => {
+
+    function updateScreen(time) {
+
+      alanBtn({
+
+        key: "c6eb400ab872978fad3b004399eccbd82e956eca572e1d8b807a3e2338fdd0dc/stage",
+        onCommand: (commandData) => {
+          if (commandData.command === "filter") {
+
+            props.filter(commandData.data)
+
+          }
+
+          if (commandData.command === "navigate") {
+            navigate("/mart/cart")
+          }
+
+
+
+        }
+      })
+    }
+
+    requestAnimationFrame(updateScreen);
+  }, [])
 
 
 
@@ -36,6 +63,7 @@ function App(props) {
 
 
   }, [])
+
 
 
 
@@ -66,6 +94,7 @@ function App(props) {
 
 
         <div className="left" >
+
           {/* <select onChange={() => props.dark_red() } className="btn btn-outline-light custom-select mr-sm-2" id="inlineFormCustomSelect">
 
             <option defaultChecked value="1">☀️</option>
@@ -95,7 +124,7 @@ function App(props) {
             <img src="https://images.priceoye.pk/pakistan-priceoye-slider-1sh6x.png" className='cover' />
 
             <span className='search-span'>
-              <input onChange={(e) => setsearchword(e.target.value)} type="text" className='form-control' placeholder='Search' />
+              <input onChange={(e) => { setsearchword(e.target.value); props.filter(e.target.value) }} type="text" className='form-control' placeholder='Search' />
               <button className='search-btn btn btn-outline-primary' onClick={() => searchword != "" ? props.filter(searchword) : null}>Go</button>
             </span>
 
@@ -116,7 +145,7 @@ function App(props) {
                 {/* {search.var.includes(v.name) ? setsearch({ ...search, bool: true }) : null} */}
 
 
-                <div onClick={() => navigate(`/mart/details/${v.name}`)} className="card">
+                <div onClick={() => navigate(`/mart/details/${v.id}`)} className="card">
 
                   <img src={v.img} className="card-img" />
                   <div className="card-img-overlay">
@@ -175,6 +204,9 @@ function App(props) {
 }
 
 
+
+
+
 const mapStateToProps = (state) => ({
   state: state.products,
   darktheme: state.darktheme
@@ -182,10 +214,9 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-  // add_product: () => dispatch(add_product()),
   dark_red: () => dispatch(dark_red()),
   getitems: () => dispatch(getitems()),
-  filter: (searchword) => dispatch(filter(searchword))
+  filter: (searchword) => dispatch(filter(searchword)),
 
 
 })

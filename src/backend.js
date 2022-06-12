@@ -7,7 +7,12 @@ const router = express.Router()
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
-const port = 3000;
+
+
+var cors = require('cors');
+app.use(cors())
+
+const port = 4000;
 
 app.listen(port, () => {
 

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { connect } from 'react-redux';
-import "../css/details.css";
+import { connect } from 'react-redux'
+import "../css/details.css"
 
 import { add_to_cart } from "../store/action/action"
 
@@ -17,7 +17,8 @@ const Details = (props) => {
 
 
 
-    { props.state.map((v) => { if (v.name == name) { product = v } }) }
+    { props.state.map((v) => { if (v.id == name) { product = v } }) }
+    
     // console.log(product)
 
 
@@ -32,7 +33,7 @@ const Details = (props) => {
             <div className="nav">
 
                 <Example />
-                
+
             </div>
 
 
