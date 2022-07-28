@@ -8,23 +8,23 @@ import Add from "./Addproducts.jsx"
 
 import Cart from "./cart.jsx";
 
-import { BrowserRouter as Router , Routes , Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 const App = () => {
 
-    return(
+    return (
         <div>
             <Router>
                 <Routes>
 
+                    
+                    <Route path="/mart" element={<Home />} />
 
-                    <Route path="/mart" element={<Home/>} />
+                    <Route path="/mart/details/:name" element={<Details />} />
 
-                    <Route path="/mart/details/:name" element={<Details/>} />
+                    <Route path="/mart/add" element={<Add />} />
 
-                    <Route path="/mart/add" element={<Add/>} />
-
-                    <Route exact path="/mart/cart" element={<Cart/>} />
+                    <Route path="/mart/cart" element={<Cart />} />
 
 
 

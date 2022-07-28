@@ -15,10 +15,10 @@ const Details = (props) => {
 
 
 
-
+    
 
     { props.state.map((v) => { if (v.id == name) { product = v } }) }
-    
+
     // console.log(product)
 
 

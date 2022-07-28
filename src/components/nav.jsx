@@ -48,7 +48,7 @@ const Example = (props) => {
           </span>
 
 
-          {props.user.name == "" ? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img className='choti_img signimg' src={props.user.photo} />}
+          {props.user.name == "" ? <button className="btn signbtn btn-outline-light" onClick={() => props.google_login()} >Sign in</button> : <img referrerPolicy='no-referrer' className='choti_img signimg' src={props.user.photo} />}
         </div>
 
         {/* <NavbarToggler /> */}
@@ -96,7 +96,7 @@ const Example = (props) => {
 
 
               {/* {props.user.name !== "" ? props.user.name : null} */}
-              {props.user.name !== "" ? <img className='choti_img' src={props.user.photo} /> : null}
+              {props.user.name !== "" ? <img referrerPolicy='no-referrer' className='choti_img' src={props.user.photo} /> : null}
 
             </NavItem>
 

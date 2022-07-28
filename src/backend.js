@@ -1,4 +1,5 @@
 const express = require("express");
+const dotenv = require("dotenv")
 
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -12,7 +13,8 @@ app.use(express.urlencoded({ extended: false }))
 var cors = require('cors');
 app.use(cors())
 
-const port = 4000;
+dotenv.config({path : "./.env"})
+const port =  process.env.PORT || 4000;
 
 app.listen(port, () => {
 
@@ -40,6 +42,10 @@ app.listen(port, () => {
 
     })
 
+
+    app.get('/get' , (req,res) => {
+        res.send("haaaaaaaaaaaaaaaaaaaaaaaaaaaaannnnnnnnnnnnnnnnnnnnnnn")
+    })
 
 
 
